@@ -5,6 +5,7 @@ import 'app/locator.dart';
 import 'app/router.gr.dart';
 
 void main() {
+  //set up locator
   setUpLocator();
   runApp(MyApp());
 }
