@@ -12,6 +12,12 @@ BoxDecoration mainContainerDecoration({Color color = Colors.white}) {
   );
 }
 
+const kDrawerTextStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 20.0,
+  fontWeight: FontWeight.w500,
+);
+
 final List<Friend> friendsList = [
   Friend(
     name: 'Alla',

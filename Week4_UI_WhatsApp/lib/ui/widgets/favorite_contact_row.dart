@@ -1,6 +1,8 @@
 import 'package:Week4_UI_WhatsApp/ui/shared/constants.dart';
 import 'package:flutter/material.dart';
 
+import 'custom_circle_avatar.dart';
+
 class FavoriteContactRow extends StatelessWidget {
   const FavoriteContactRow({
     Key key,
@@ -28,16 +30,8 @@ class FavoriteContactRow extends StatelessWidget {
       margin: EdgeInsets.only(left: 20.0),
       child: Column(
         children: [
-          Container(
-            padding: EdgeInsets.all(2.7),
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.white,
-            ),
-            child: CircleAvatar(
-              radius: 35,
-              backgroundImage: AssetImage(imgSource),
-            ),
+          CustomCircleAvatar(
+            imgSource: imgSource,
           ),
           SizedBox(height: 10.0),
           Center(

@@ -7,32 +7,17 @@ import '../shared/app_colors.dart';
 
 import '../widgets/selection_row.dart';
 import '../widgets/favorite_contact_row.dart';
+import '../widgets/messages_list.dart';
+import '../widgets/custom_drawer.dart';
 
 class HomeView extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: AppColors.black,
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Colors.transparent,
-        leading: Container(
-          child: IconButton(
-            padding: EdgeInsets.only(left: 20.0),
-            icon: FaIcon(
-              FontAwesomeIcons.bars,
-            ),
-            onPressed: () {},
-          ),
-        ),
-        actions: [
-          IconButton(
-            padding: EdgeInsets.only(right: 20.0),
-            icon: FaIcon(FontAwesomeIcons.search),
-            onPressed: () {},
-          ),
-        ],
-      ),
+      appBar: _appBar(),
       body: Column(
         children: [
           SelectionRow(),
@@ -44,76 +29,12 @@ class HomeView extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  SizedBox(height: 30.0),
+                  SizedBox(height: 15.0),
                   _favoriteContactLabel(),
                   FavoriteContactRow(),
                   SizedBox(height: 20.0),
                   Expanded(
-                    child: Container(
-                      height: double.infinity,
-                      padding: EdgeInsets.only(
-                        left: 20.0,
-                        top: 5.0,
-                        bottom: 10.0,
-                      ),
-                      decoration: mainContainerDecoration(),
-                      child: ListView(
-                        children: [
-                          Container(
-                            height: 100,
-                            child: Row(
-                              children: [
-                                CircleAvatar(
-                                  radius: 35,
-                                  backgroundImage:
-                                      AssetImage('assets/images/friend3.jpeg'),
-                                ),
-                                SizedBox(width: 20.0),
-                                Expanded(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      border: Border(
-                                        bottom: BorderSide(
-                                          width: 0.5,
-                                          color: Colors.grey.withOpacity(.3),
-                                        ),
-                                      ),
-                                    ),
-                                    padding: EdgeInsets.only(
-                                      top: 20.0,
-                                      bottom: 20.0,
-                                      right: 20.0,
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Text('Name'),
-                                            SizedBox(height: 5.0),
-                                            Text('Name'),
-                                          ],
-                                        ),
-                                        Spacer(),
-                                        Column(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Text('16:36'),
-                                            Text('2'),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
+                    child: MessagesList(),
                   ),
                 ],
               ),
@@ -121,6 +42,48 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
+      floatingActionButton: Container(
+        width: 65,
+        height: 65,
+        child: FittedBox(
+          child: FloatingActionButton(
+            backgroundColor: AppColors.green,
+            child: FaIcon(
+              FontAwesomeIcons.pen,
+              size: 20.0,
+            ),
+            onPressed: () {},
+          ),
+        ),
+      ),
+      drawer: CustomDrawer(),
+    );
+  }
+
+  AppBar _appBar() {
+    return AppBar(
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      leading: Container(
+        child: IconButton(
+          splashRadius: null,
+          padding: EdgeInsets.only(left: 20.0),
+          icon: FaIcon(
+            FontAwesomeIcons.bars,
+          ),
+          onPressed: () {
+            _scaffoldKey.currentState.openDrawer();
+          },
+        ),
+      ),
+      actions: [
+        IconButton(
+          splashRadius: null,
+          padding: EdgeInsets.only(right: 20.0),
+          icon: FaIcon(FontAwesomeIcons.search),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 
