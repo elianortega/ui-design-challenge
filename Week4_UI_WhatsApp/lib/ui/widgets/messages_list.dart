@@ -9,7 +9,11 @@ class MessagesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return DraggableScrollableSheet(
+      expand: true,
+      initialChildSize: .73,
+      minChildSize: .73,
+      builder: (context, scrollController) => Container(
         height: double.infinity,
         padding: EdgeInsets.only(
           left: 20.0,
@@ -18,6 +22,7 @@ class MessagesList extends StatelessWidget {
         ),
         decoration: mainContainerDecoration(),
         child: ListView.builder(
+          controller: scrollController,
           itemCount: friendsList.length,
           itemBuilder: (context, index) {
             return _messageListTile(
@@ -25,7 +30,9 @@ class MessagesList extends StatelessWidget {
               imgSource: friendsList[index].imgSource,
             );
           },
-        ));
+        ),
+      ),
+    );
   }
 
   Container _messageListTile({String name, String imgSource}) {

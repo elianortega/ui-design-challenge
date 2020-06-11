@@ -48,7 +48,7 @@ class CustomDrawer extends StatelessWidget {
                 )
               ],
             ),
-            SizedBox(height: 40.0),
+            SizedBox(height: 30.0),
             Row(
               children: [
                 CustomCircleAvatar(imgSource: 'assets/images/elian.jpg'),
@@ -69,7 +69,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             _drawerTile(
               icon: FontAwesomeIcons.comments,
-              title: 'Messages',
+              title: 'Chat',
             ),
             _drawerTile(
               icon: FontAwesomeIcons.solidBell,
@@ -94,7 +94,7 @@ class CustomDrawer extends StatelessWidget {
             ),
             Spacer(),
             _drawerTile(
-              title: 'LogOut',
+              title: 'Log out',
               icon: FontAwesomeIcons.signOutAlt,
             )
           ],
@@ -105,7 +105,7 @@ class CustomDrawer extends StatelessWidget {
 
   Container _drawerTile({@required String title, @required IconData icon}) {
     return Container(
-      margin: EdgeInsets.only(bottom: 30.0),
+      margin: EdgeInsets.only(bottom: 25.0),
       child: Row(
         children: [
           FaIcon(

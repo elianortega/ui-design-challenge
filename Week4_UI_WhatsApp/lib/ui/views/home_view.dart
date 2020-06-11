@@ -1,3 +1,4 @@
+import 'package:Week4_UI_WhatsApp/ui/animation/slide_animation.dart';
 import 'package:Week4_UI_WhatsApp/ui/shared/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -20,24 +21,42 @@ class HomeView extends StatelessWidget {
       appBar: _appBar(),
       body: Column(
         children: [
-          SelectionRow(),
+          SlideAnimation(
+            delay: 600,
+            offsetStart: Offset(200, 0),
+            child: SelectionRow(),
+          ),
           SizedBox(height: 20.0),
           Expanded(
-            child: Container(
-              decoration: mainContainerDecoration(
-                color: AppColors.green,
-              ),
-              child: Column(
-                children: [
-                  SizedBox(height: 15.0),
-                  _favoriteContactLabel(),
-                  FavoriteContactRow(),
-                  SizedBox(height: 20.0),
-                  Expanded(
-                    child: MessagesList(),
+            child: Stack(
+              children: [
+                SlideAnimation(
+                  delay: 700,
+                  offsetStart: Offset(200, 0),
+                  child: Container(
+                    decoration: mainContainerDecoration(
+                      color: AppColors.green,
+                    ),
+                    child: Column(
+                      children: [
+                        SizedBox(height: 15.0),
+                        _favoriteContactLabel(),
+                        SlideAnimation(
+                          delay: 800,
+                          offsetStart: Offset(200, 0),
+                          child: FavoriteContactRow(),
+                        ),
+                        SizedBox(height: 20.0),
+                      ],
+                    ),
                   ),
-                ],
-              ),
+                ),
+                SlideAnimation(
+                  delay: 900,
+                  offsetStart: Offset(0, 500),
+                  child: MessagesList(),
+                ),
+              ],
             ),
           )
         ],

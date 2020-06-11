@@ -14,7 +14,7 @@ BoxDecoration mainContainerDecoration({Color color = Colors.white}) {
 
 const kDrawerTextStyle = TextStyle(
   color: Colors.white,
-  fontSize: 20.0,
+  fontSize: 18.0,
   fontWeight: FontWeight.w500,
 );
 
