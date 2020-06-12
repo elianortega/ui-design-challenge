@@ -3,6 +3,7 @@ import 'package:Week4_UI_WhatsApp/ui/widgets/custom_circle_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/app_colors.dart';
+import '../animation/slide_animation.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
@@ -49,53 +50,90 @@ class CustomDrawer extends StatelessWidget {
               ],
             ),
             SizedBox(height: 30.0),
-            Row(
-              children: [
-                CustomCircleAvatar(imgSource: 'assets/images/elian.jpg'),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      'Elian Ortega',
-                      style: kDrawerTextStyle,
+            SlideAnimation(
+              delay: 500,
+              curve: Curves.easeInOutBack,
+              offsetStart: Offset(-200, 0),
+              child: Row(
+                children: [
+                  CustomCircleAvatar(imgSource: 'assets/images/elian.jpg'),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        'Elian Ortega',
+                        style: kDrawerTextStyle,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
             SizedBox(height: 40.0),
-            _drawerTile(
-              icon: FontAwesomeIcons.key,
-              title: 'Account',
+            SlideAnimation(
+              delay: 300,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                icon: FontAwesomeIcons.key,
+                title: 'Account',
+              ),
             ),
-            _drawerTile(
-              icon: FontAwesomeIcons.comments,
-              title: 'Chat',
+            SlideAnimation(
+              delay: 400,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                icon: FontAwesomeIcons.comments,
+                title: 'Chat',
+              ),
             ),
-            _drawerTile(
-              icon: FontAwesomeIcons.solidBell,
-              title: 'Notifications',
+            SlideAnimation(
+              delay: 500,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                icon: FontAwesomeIcons.solidBell,
+                title: 'Notifications',
+              ),
             ),
-            _drawerTile(
-              icon: FontAwesomeIcons.database,
-              title: 'Data and Storage',
+            SlideAnimation(
+              delay: 600,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                icon: FontAwesomeIcons.database,
+                title: 'Data and Storage',
+              ),
             ),
-            _drawerTile(
-              icon: FontAwesomeIcons.solidQuestionCircle,
-              title: 'Help',
+            SlideAnimation(
+              delay: 700,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                icon: FontAwesomeIcons.solidQuestionCircle,
+                title: 'Help',
+              ),
             ),
-            Divider(
-              color: AppColors.green.withOpacity(.5),
-              thickness: 2,
+            SlideAnimation(
+              delay: 750,
+              offsetStart: Offset(-100, 100),
+              child: Divider(
+                color: AppColors.green.withOpacity(.5),
+                thickness: 2,
+              ),
             ),
             SizedBox(height: 20.0),
-            _drawerTile(
-              title: 'Invite a Friend',
-              icon: FontAwesomeIcons.userFriends,
+            SlideAnimation(
+              delay: 800,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                title: 'Invite a Friend',
+                icon: FontAwesomeIcons.userFriends,
+              ),
             ),
             Spacer(),
-            _drawerTile(
-              title: 'Log out',
-              icon: FontAwesomeIcons.signOutAlt,
+            SlideAnimation(
+              delay: 900,
+              offsetStart: Offset(-100, 100),
+              child: _drawerTile(
+                title: 'Log out',
+                icon: FontAwesomeIcons.signOutAlt,
+              ),
             )
           ],
         ),

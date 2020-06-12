@@ -32,6 +32,7 @@ class HomeView extends StatelessWidget {
               children: [
                 SlideAnimation(
                   delay: 700,
+                  curve: Curves.easeInOutBack,
                   offsetStart: Offset(200, 0),
                   child: Container(
                     decoration: mainContainerDecoration(
@@ -41,11 +42,7 @@ class HomeView extends StatelessWidget {
                       children: [
                         SizedBox(height: 15.0),
                         _favoriteContactLabel(),
-                        SlideAnimation(
-                          delay: 800,
-                          offsetStart: Offset(200, 0),
-                          child: FavoriteContactRow(),
-                        ),
+                        FavoriteContactRow(),
                         SizedBox(height: 20.0),
                       ],
                     ),

@@ -12,6 +12,16 @@ BoxDecoration mainContainerDecoration({Color color = Colors.white}) {
   );
 }
 
+enum MessageType {
+  Text,
+  Image,
+  Audio,
+}
+
+const kPreviewMessageTextStyle = TextStyle(
+  fontSize: 18.0,
+);
+
 const kDrawerTextStyle = TextStyle(
   color: Colors.white,
   fontSize: 18.0,

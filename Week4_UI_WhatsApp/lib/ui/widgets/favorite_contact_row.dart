@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'custom_circle_avatar.dart';
 
+import '../animation/slide_animation.dart';
+
 class FavoriteContactRow extends StatelessWidget {
   const FavoriteContactRow({
     Key key,
@@ -12,14 +14,18 @@ class FavoriteContactRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 110,
-      // color: Colors.red,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: friendsList.length,
         itemBuilder: (context, index) {
-          return _favoriteContact(
-              name: friendsList[index].name,
-              imgSource: friendsList[index].imgSource);
+          return SlideAnimation(
+            curve: Curves.elasticInOut,
+            delay: 800 + (index * 200),
+            offsetStart: Offset(200, 0),
+            child: _favoriteContact(
+                name: friendsList[index].name,
+                imgSource: friendsList[index].imgSource),
+          );
         },
       ),
     );

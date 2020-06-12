@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'ui/views/home_view.dart';
+import 'ui/views/startup_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,12 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeView(),
+      home: StartUpView(),
     );
   }
 }
