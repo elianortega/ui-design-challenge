@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   charcode:
     dependency: transitive
     description:
@@ -55,13 +62,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_rating_bar:
-    dependency: "direct main"
-    description:
-      name: flutter_rating_bar
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "3.0.1+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -93,13 +93,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
-  slider_button:
-    dependency: "direct main"
-    description:
-      name: slider_button
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.5.0"
   source_span:
     dependency: transitive
     description:
