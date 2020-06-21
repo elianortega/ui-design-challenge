@@ -1,6 +1,8 @@
-import 'package:Week5_UI_Dmm/views/startup_view.dart';
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
+
+import 'package:Week5_UI_Dmm/screens/bottom_navbar_controller.dart';
+import 'package:Week5_UI_Dmm/screens/startup_screen.dart';
+import 'package:flutter/material.dart';
 
 class FlipAnimationController extends StatefulWidget {
   @override
@@ -35,7 +37,8 @@ class _FlipAnimationControllerState extends State<FlipAnimationController>
   // );
 
   Widget build(BuildContext context) {
-    final startUp = StartUpView(toggle: toggle);
+    final startUp = StartUpScreen(toggle: toggle);
+    final mainScreen = BottomNavBarController(toggle: toggle);
     return AnimatedBuilder(
       animation: _animationController,
       builder: (context, _) => IndexedStack(
@@ -45,44 +48,23 @@ class _FlipAnimationControllerState extends State<FlipAnimationController>
             transform: Matrix4.identity()
               ..setEntry(3, 2, 0.001)
               ..rotateY(math.pi + (math.pi * _animationController.value)),
-            child: SecondScreen(
-              toggle: toggle,
-            ),
+            child: mainScreen,
             alignment: Alignment.center,
           ),
           AnimatedBuilder(
             animation: _animationController,
-            child: startUp,
             builder: (context, child) {
               return Transform(
                 transform: Matrix4.identity()
                   ..setEntry(3, 2, 0.001)
                   ..rotateY(math.pi * _animationController.value),
-                child: child,
                 alignment: Alignment.center,
+                child: child,
               );
             },
+            child: startUp,
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SecondScreen extends StatelessWidget {
-  final Function toggle;
-
-  const SecondScreen({Key key, this.toggle}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      // backgroundColor: Colors.red,
-      appBar: AppBar(
-        title: Text('This will be the second Screen'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
-          onPressed: toggle,
-        ),
       ),
     );
   }

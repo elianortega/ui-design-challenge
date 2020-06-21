@@ -1,6 +1,5 @@
+import 'package:Week5_UI_Dmm/screens/startapp_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'flip_animation_controller.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
               bodyColor: Colors.black,
             ),
       ),
-      home: FlipAnimationController(),
+      home: StartAppScreen(),
     );
   }
 }
