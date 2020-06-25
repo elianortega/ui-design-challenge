@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:slide_button/slide_button.dart';
-
 import '../widgets/meal_display.dart';
 import '../widgets/detail_row.dart';
 import '../widgets/meal_detail_info.dart';

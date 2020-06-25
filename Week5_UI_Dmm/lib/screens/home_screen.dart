@@ -133,7 +133,7 @@ class _MyCard extends StatelessWidget {
               ],
             ),
             Container(
-              height: MediaQuery.of(context).size.height * .3,
+              height: MediaQuery.of(context).size.height * .35,
               child: Row(
                 children: [
                   Container(
@@ -197,7 +197,8 @@ class _MyCard extends StatelessWidget {
                               color: AppColors.orange,
                             ),
                           ),
-                        )
+                        ),
+                        // SizedBox(height: 100.0),
                       ],
                     ),
                   ),

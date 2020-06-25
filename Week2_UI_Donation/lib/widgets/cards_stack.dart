@@ -17,7 +17,6 @@ class CardsStack extends StatelessWidget {
     ];
     return Container(
       // padding: EdgeInsets.only(left: 20.0),
-      // color: Colors.green,
       height: MediaQuery.of(context).size.height * .6,
       child: CardSelector(
         mainCardWidth: MediaQuery.of(context).size.width * .8,

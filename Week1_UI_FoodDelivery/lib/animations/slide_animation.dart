@@ -22,10 +22,10 @@ class SlideAnimation extends StatefulWidget {
 }
 
 class _SlideAnimationState extends State<SlideAnimation> {
-  startTime() async {
-    var duration = new Duration(milliseconds: widget.wait);
-    return new Timer(duration, route);
-  }
+  // startTime() async {
+  //   var duration = new Duration(milliseconds: widget.wait);
+  //   return new Timer(duration, route);
+  // }
 
   @override
   Widget build(BuildContext context) {

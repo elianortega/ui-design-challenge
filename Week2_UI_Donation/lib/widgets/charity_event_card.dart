@@ -110,6 +110,11 @@ class CharityEventCard extends StatelessWidget {
                                       ),
                                     ),
                                   ),
+                                  RaisedButton(
+                                    onPressed: () {
+                                      print('pressed');
+                                    },
+                                  ),
                                 ],
                               ),
                             ],

@@ -109,22 +109,23 @@ class MealInfoCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  RatingBar(
-                    glow: false,
-                    itemSize: 25.0,
-                    initialRating: 3,
-                    minRating: 1,
-                    direction: Axis.horizontal,
-                    allowHalfRating: true,
-                    itemCount: 5,
-                    itemBuilder: (context, _) => Icon(
-                      Icons.star,
-                      color: Color(0xFFEE8703),
-                    ),
-                    onRatingUpdate: (rating) {
-                      print(rating);
-                    },
-                  ),
+                  _RaitingBar(),
+                  // RatingBar(
+                  //   glow: false,
+                  //   itemSize: 25.0,
+                  //   initialRating: 3,
+                  //   minRating: 1,
+                  //   direction: Axis.horizontal,
+                  //   allowHalfRating: true,
+                  //   itemCount: 5,
+                  //   itemBuilder: (context, _) => Icon(
+                  //     Icons.star,
+                  //     color: Color(0xFFEE8703),
+                  //   ),
+                  //   onRatingUpdate: (rating) {
+                  //     print(rating);
+                  //   },
+                  // ),
                   Text(
                     '\$${price.toString()}',
                     style: TextStyle(
@@ -143,6 +144,42 @@ class MealInfoCard extends StatelessWidget {
               width: 150.0,
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _RaitingBar extends StatelessWidget {
+  const _RaitingBar({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Row(
+        children: [
+          Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.amber,
+          ),
+          Icon(
+            Icons.star,
+            color: Colors.amber,
+          )
         ],
       ),
     );
