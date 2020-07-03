@@ -9,3 +9,23 @@ class AppColors {
 
   static const lightBlue = Color(0xff4DD7E5);
 }
+
+const kBigTextStyle = TextStyle(
+  fontSize: 30.0,
+  fontWeight: FontWeight.bold,
+  color: AppColors.purple,
+);
+
+const kMediumTextStyle = TextStyle(
+  fontSize: 22.0,
+  color: AppColors.lightBlue,
+  height: 1.5,
+  fontWeight: FontWeight.bold,
+);
+
+const kSmallTextStyle = TextStyle(
+  fontSize: 15.0,
+  color: AppColors.lightBlue,
+  height: 1.5,
+  fontWeight: FontWeight.bold,
+);
