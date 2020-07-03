@@ -1,4 +1,6 @@
 import 'package:Week6_UI_Bank/constants.dart';
+import 'package:Week6_UI_Bank/widgets/card.dart';
+import 'package:Week6_UI_Bank/widgets/outline_card.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,7 +8,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.pink,
-      body: _Body(),
+      body: CustomPaint(painter: _HomeScreenPainter(), child: _Body()),
     );
   }
 }
@@ -21,9 +23,7 @@ class _Body extends StatelessWidget {
     return Column(
       children: [
         _AccountInfo(),
-        Expanded(
-          child: _AccountDescription(),
-        ),
+        _AccountDescription(),
       ],
     );
   }
@@ -136,21 +136,23 @@ class _BalanceContainer extends StatelessWidget {
 class _AccountDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(40.0),
-          topRight: Radius.circular(40.0),
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(40.0),
+            topRight: Radius.circular(40.0),
+          ),
         ),
-      ),
-      child: Column(
-        children: [
-          _TimeButtons(),
-          _SpendingsGraph(),
-          _CardList(),
-        ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            _TimeButtons(),
+            _SpendingsGraph(),
+            _CardList(),
+          ],
+        ),
       ),
     );
   }
@@ -163,23 +165,26 @@ class _TimeButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      children: [
-        _TimeButton(
-          title: 'Day',
-        ),
-        _TimeButton(
-          title: 'Week',
-          selected: true,
-        ),
-        _TimeButton(
-          title: 'Month',
-        ),
-        _TimeButton(
-          title: 'Year',
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          _TimeButton(
+            title: 'Day',
+          ),
+          _TimeButton(
+            title: 'Week',
+            selected: true,
+          ),
+          _TimeButton(
+            title: 'Month',
+          ),
+          _TimeButton(
+            title: 'Year',
+          ),
+        ],
+      ),
     );
   }
 }
@@ -215,6 +220,7 @@ class _SpendingsGraph extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
       height: 300,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -372,17 +378,43 @@ class _DaySpendingsBar extends StatelessWidget {
 class _CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          height: 150,
-          width: 250,
-          decoration: BoxDecoration(
-            color: AppColors.purple,
-            borderRadius: BorderRadius.circular(20.0),
-          ),
-        )
-      ],
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 30.0),
+      height: 150,
+      // color: Colors.red,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          const SizedBox(width: 20.0),
+          CreditCard(),
+          const SizedBox(width: 20.0),
+          OutlineCard(),
+        ],
+      ),
     );
   }
+}
+
+class _HomeScreenPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint paint = Paint()
+      ..color = AppColors.purple
+      ..style = PaintingStyle.fill;
+
+    Path topPurple = Path()
+      ..moveTo(0, 110)
+      ..quadraticBezierTo(70, 90, 130, 0)
+      ..lineTo(250, 0)
+      ..quadraticBezierTo(197, 60, 130, 70)
+      ..quadraticBezierTo(63, 90, 0, 200);
+
+    canvas.drawPath(topPurple, paint);
+  }
+
+  @override
+  bool shouldRepaint(_HomeScreenPainter oldDelegate) => false;
+
+  @override
+  bool shouldRebuildSemantics(_HomeScreenPainter oldDelegate) => false;
 }
