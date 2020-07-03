@@ -146,7 +146,11 @@ class _AccountDescription extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: [_TimeButtons()],
+        children: [
+          _TimeButtons(),
+          _SpendingsGraph(),
+          _CardList(),
+        ],
       ),
     );
   }
@@ -203,6 +207,182 @@ class _TimeButton extends StatelessWidget {
           color: selected ? Colors.white : AppColors.lightPurple,
         ),
       ),
+    );
+  }
+}
+
+class _SpendingsGraph extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          Container(
+            height: 200,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                _DaySpendingsBar(
+                  title: 'M',
+                  averageExpense: .7,
+                  expense: .5,
+                ),
+                _DaySpendingsBar(
+                  title: 'T',
+                  averageExpense: .9,
+                  expense: .8,
+                ),
+                _DaySpendingsBar(
+                  title: 'W',
+                  averageExpense: .6,
+                  expense: .9,
+                ),
+                _DaySpendingsBar(
+                  title: 'T',
+                  averageExpense: .4,
+                  expense: .4,
+                ),
+                _DaySpendingsBar(
+                  title: 'F',
+                  averageExpense: .5,
+                  expense: .3,
+                ),
+                _DaySpendingsBar(
+                  title: 'S',
+                  averageExpense: .8,
+                  expense: .7,
+                ),
+                _DaySpendingsBar(
+                  title: 'S',
+                  averageExpense: .4,
+                  expense: .2,
+                ),
+              ],
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              _GraphLabel(
+                title: 'Average',
+                color: Colors.grey[200],
+              ),
+              _GraphLabel(
+                title: 'This Week',
+                color: AppColors.purple,
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class _GraphLabel extends StatelessWidget {
+  final String title;
+  final Color color;
+  const _GraphLabel({
+    Key key,
+    this.title,
+    this.color,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          width: 8,
+          height: 8,
+          decoration: BoxDecoration(
+            color: color,
+            shape: BoxShape.circle,
+          ),
+        ),
+        SizedBox(width: 5),
+        Text(
+          title,
+          style: kSmallTextStyle,
+        ),
+      ],
+    );
+  }
+}
+
+class _DaySpendingsBar extends StatelessWidget {
+  final String title;
+  final double averageExpense;
+  final double expense;
+  const _DaySpendingsBar({
+    Key key,
+    this.title,
+    this.averageExpense,
+    this.expense,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraints) => Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              Card(
+                margin: EdgeInsets.zero,
+                child: Container(
+                  height: (constraints.constrainHeight() - 27 - 5) * averageExpense,
+                  width: 8.0,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[100],
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.zero,
+                child: Container(
+                  height: (constraints.constrainHeight() - 27 - 5) * expense,
+                  width: 8.0,
+                  decoration: BoxDecoration(
+                    color: AppColors.purple,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 5),
+          Text(
+            title,
+            style: kSmallTextStyle,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _CardList extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          height: 150,
+          width: 250,
+          decoration: BoxDecoration(
+            color: AppColors.purple,
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+        )
+      ],
     );
   }
 }
