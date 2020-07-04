@@ -1,5 +1,6 @@
 import 'package:Week6_UI_Bank/constants.dart';
-import 'package:Week6_UI_Bank/widgets/card.dart';
+import 'package:Week6_UI_Bank/screens/card_details_screen.dart';
+import 'package:Week6_UI_Bank/widgets/credit_card.dart';
 import 'package:Week6_UI_Bank/widgets/outline_card.dart';
 import 'package:flutter/material.dart';
 
@@ -386,7 +387,15 @@ class _CardList extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         children: [
           const SizedBox(width: 20.0),
-          CreditCard(),
+          CreditCard(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => CardDetailsScreen(),
+                ),
+              );
+            },
+          ),
           const SizedBox(width: 20.0),
           OutlineCard(),
         ],
