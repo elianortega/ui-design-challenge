@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/startup_screen.dart';
+
+import 'package:Week6_UI_Bank/screens/start_app_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: StartUpScreen(),
+      home: StartAppScreen(),
     );
   }
 }

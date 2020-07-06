@@ -6,6 +6,7 @@ class OutlineCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.only(right: 20.0),
       height: 150,
       width: 230,
       child: CustomPaint(

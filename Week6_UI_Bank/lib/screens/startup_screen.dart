@@ -1,6 +1,5 @@
+import 'package:Week6_UI_Bank/animation/slide_animation.dart';
 import 'package:flutter/material.dart';
-import 'package:path_drawing/path_drawing.dart';
-
 import '../constants.dart';
 import 'home_screen.dart';
 
@@ -19,55 +18,89 @@ class StartUpScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Spacer(),
-                Image.network(
-                    'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week6_UI_Bank/assets/images/startup_screen.png'),
-                SizedBox(height: 20.0),
-                Container(
-                  padding: EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Stay Secure',
-                        style: kBigTextStyle,
-                      ),
-                      SizedBox(height: 10.0),
-                      Text(
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim ut lacus.',
-                        style: kSmallTextStyle,
-                      )
-                    ],
-                  ),
+                SlideAnimation(
+                  offsetStart: Offset(200, 0),
+                  duration: 600,
+                  child: Image.asset('assets/images/startup_screen.png'),
                 ),
+                SizedBox(height: 20.0),
+                _Information(),
                 Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(left: 40, right: 20),
-                  child: Row(
-                    children: [
-                      Text(
-                        'Skip',
-                        style: kSmallTextStyle,
-                      ),
-                      Spacer(),
-                      IconButton(
-                        icon: Icon(
-                          Icons.arrow_forward_ios,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          Navigator.of(context).push(
-                            MaterialPageRoute(
-                              builder: (_) => HomeScreen(),
-                            ),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
+                SlideAnimation(
+                  offsetStart: Offset(0, 100),
+                  curve: Curves.bounceOut,
+                  duration: 900,
+                  child: _Buttons(),
                 )
               ],
             ),
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class _Buttons extends StatelessWidget {
+  const _Buttons({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 40, right: 20),
+      child: Row(
+        children: [
+          Text(
+            'Skip',
+            style: kSmallTextStyle,
+          ),
+          Spacer(),
+          IconButton(
+            icon: Icon(
+              Icons.arrow_forward_ios,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => HomeScreen(),
+                ),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _Information extends StatelessWidget {
+  const _Information({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideAnimation(
+      offsetStart: Offset(200, 0),
+      duration: 700,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 40.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Stay Secure',
+              style: kBigTextStyle,
+            ),
+            SizedBox(height: 10.0),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque dignissim ut lacus.',
+              style: kSmallTextStyle,
+            )
+          ],
         ),
       ),
     );
@@ -79,6 +112,7 @@ class _StartUpPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     var height = size.height;
     var width = size.width;
+
     Paint paint = Paint()
       ..color = AppColors.purple
       ..style = PaintingStyle.fill;
