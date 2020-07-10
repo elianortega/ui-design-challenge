@@ -9,25 +9,26 @@ class SearchBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Container(
-            height: 50.0,
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
-            width: MediaQuery.of(context).size.width * .7,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                  icon: Icon(
-                    Icons.search,
-                    color: Colors.grey,
-                  ),
-                  border: InputBorder.none,
-                  labelText: 'Search Foods items'),
+          Expanded(
+            child: Container(
+              height: 50.0,
+              padding: EdgeInsets.symmetric(horizontal: 20.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: TextField(
+                decoration: InputDecoration(
+                    icon: Icon(
+                      Icons.search,
+                      color: Colors.grey,
+                    ),
+                    border: InputBorder.none,
+                    labelText: 'Search Foods items'),
+              ),
             ),
           ),
-          // Spacer(),
+          SizedBox(width: 20.0),
           Container(
             decoration: BoxDecoration(
               color: Colors.white,

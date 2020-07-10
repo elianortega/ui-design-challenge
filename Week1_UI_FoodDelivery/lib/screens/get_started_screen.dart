@@ -44,38 +44,6 @@ class GetStartedScreen extends StatelessWidget {
               ),
             ),
           ),
-
-          // Positioned(
-          //   child: SlideAnimation(
-          //     offsetStart: Offset(0, -MediaQuery.of(context).size.height * .5),
-          //     offsetEnd: Offset.zero,
-          //     durationMilliseconds: 500,
-          //     child: Opacity(
-          //       opacity: .2,
-          //       child: Image.asset(
-          //         'assets/images/food-pattern.png',
-          //         height: MediaQuery.of(context).size.height * .5,
-          //         fit: BoxFit.cover,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // Positioned(
-          //   bottom: 0,
-          //   child: SlideAnimation(
-          //     offsetStart: Offset(0, 100),
-          //     offsetEnd: Offset.zero,
-          //     durationMilliseconds: 500,
-          //     child: Opacity(
-          //       opacity: .2,
-          //       child: Image.asset(
-          //         'assets/images/food-pattern.png',
-          //         height: MediaQuery.of(context).size.height * .5,
-          //         fit: BoxFit.cover,
-          //       ),
-          //     ),
-          //   ),
-          // ),
           SafeArea(
             child: Padding(
               padding: EdgeInsets.only(
@@ -83,73 +51,80 @@ class GetStartedScreen extends StatelessWidget {
                 right: 20.0,
                 top: 30.0,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SlideAnimation(
-                    offsetStart: Offset(-100, 0),
-                    durationMilliseconds: 500,
-                    offsetEnd: Offset.zero,
-                    child: Text(
-                      'Get\nthe Fastest\nDelivery',
-                      style: TextStyle(
-                        height: 1.5,
-                        fontSize: 35.0,
-                        fontWeight: FontWeight.w800,
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    SlideAnimation(
+                      offsetStart: Offset(-100, 0),
+                      durationMilliseconds: 700,
+                      offsetEnd: Offset.zero,
+                      child: Text(
+                        'Get the Fastest\nDelivery',
+                        style: TextStyle(
+                          height: 1.5,
+                          fontSize: 35.0,
+                          fontWeight: FontWeight.w800,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 20.0),
-                  SlideAnimation(
-                    offsetStart: Offset(-100, 0),
-                    durationMilliseconds: 600,
-                    offsetEnd: Offset.zero,
-                    child: Text(
-                      'Order food and get \ndelivery with the fastest time in town',
-                      style: TextStyle(
-                        height: 1.5,
-                        fontSize: 20.0,
-                        // fontWeight: FontWeight.bold,
+                    SizedBox(height: 20.0),
+                    SlideAnimation(
+                      offsetStart: Offset(-100, 0),
+                      durationMilliseconds: 800,
+                      offsetEnd: Offset.zero,
+                      child: Text(
+                        'Order food and get \ndelivery with the fastest time in town',
+                        style: TextStyle(
+                          height: 1.5,
+                          fontSize: 20.0,
+                        ),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                  SizedBox(height: 30.0),
-                  SlideAnimation(
-                    offsetStart: Offset(-100, 0),
-                    durationMilliseconds: 700,
-                    offsetEnd: Offset.zero,
-                    child: Container(
-                      width: 180.0,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFE6753C),
-                        borderRadius: BorderRadius.circular(20.0),
+                    SizedBox(height: 30.0),
+                    SlideAnimation(
+                      offsetStart: Offset(-100, 0),
+                      durationMilliseconds: 700,
+                      offsetEnd: Offset.zero,
+                      child: Container(
+                        width: 180.0,
+                        decoration: BoxDecoration(
+                          color: Color(0xFFE6753C),
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                        child: FlatButton(
+                          child: Text(
+                            'Get Started',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).pushNamed(HomeScreen.id);
+                          },
+                        ),
                       ),
-                      child: FlatButton(
-                        child: Text(
-                          'Get Started',
-                          style: TextStyle(
-                            color: Colors.white,
+                    ),
+                    SizedBox(height: 30.0),
+                    SlideAnimation(
+                      offsetStart: Offset(200, 0),
+                      durationMilliseconds: 800,
+                      offsetEnd: Offset.zero,
+                      child: Container(
+                        constraints: BoxConstraints(maxWidth: 500, minWidth: 0.0),
+                        child: FittedBox(
+                          fit: BoxFit.contain,
+                          child: Image.asset(
+                            'assets/images/delivery.png',
+                            // width: 200,
                           ),
                         ),
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushReplacementNamed(HomeScreen.id);
-                        },
                       ),
                     ),
-                  ),
-                  Spacer(),
-                  SlideAnimation(
-                    offsetStart: Offset(200, 0),
-                    durationMilliseconds: 800,
-                    offsetEnd: Offset.zero,
-                    child: Center(
-                      child: Image.asset(
-                        'assets/images/delivery.png',
-                      ),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),

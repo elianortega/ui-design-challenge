@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../dummy_data.dart';
+
 class FoodOptionsListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,20 +12,14 @@ class FoodOptionsListView extends StatelessWidget {
       // color: Colors.red,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [
-          FoodOptionCard(
-            title: 'Pizzas',
-            imagePath: 'assets/images/pizza.png',
-          ),
-          FoodOptionCard(
-            title: 'Salad',
-            imagePath: 'assets/images/salad.png',
-          ),
-          FoodOptionCard(
-            title: 'Shake',
-            imagePath: 'assets/images/shake.png',
-          ),
-        ],
+        children: DummyData.foodOptions
+            .map(
+              (foodItem) => FoodOptionCard(
+                title: foodItem.name,
+                imagePath: foodItem.imagePath,
+              ),
+            )
+            .toList(),
       ),
     );
   }
@@ -58,7 +54,7 @@ class FoodOptionCard extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
+              Image.network(
                 imagePath,
                 width: 60,
               ),

@@ -1,5 +1,5 @@
+import 'package:UI_FoodDelivery/dummy_data.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../screens/detail_screen.dart';
 
 class MealOptionsListView extends StatelessWidget {
@@ -7,37 +7,29 @@ class MealOptionsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 350,
-      // color: Colors.red,
       width: double.infinity,
-      // color: Colors.red,
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children: [
-          MealInfoCard(
-            name: 'Sea Platter',
-            location: 'Maratine Star Restaurant',
-            price: 20.0,
-            imagePath: 'assets/images/meal1.png',
-            onPressed: () {
-              Navigator.pushNamed(context, DetailScreen.id);
-            },
-          ),
-          MealInfoCard(
-            name: 'Chicken Wadges',
-            location: 'Rio Cafe',
-            price: 25.0,
-            imagePath: 'assets/images/meal2.png',
-            onPressed: () {
-              Navigator.pushNamed(context, DetailScreen.id);
-            },
-          )
-        ],
+        children: DummyData.mealOptions
+            .map(
+              (mealItem) => MealInfoCard(
+                name: mealItem.name,
+                location: mealItem.location,
+                price: mealItem.price,
+                imagePath: mealItem.imagePath,
+                onPressed: () {
+                  Navigator.pushNamed(context, DetailScreen.id);
+                },
+              ),
+            )
+            .toList(),
       ),
     );
   }
 }
 
 class MealInfoCard extends StatelessWidget {
+  final int index;
   final String name;
   final String location;
   final double price;
@@ -50,6 +42,7 @@ class MealInfoCard extends StatelessWidget {
     this.price,
     this.imagePath,
     this.onPressed,
+    this.index,
   }) : super(key: key);
 
   @override
@@ -91,7 +84,6 @@ class MealInfoCard extends StatelessWidget {
                     name,
                     style: TextStyle(
                       fontSize: 25.0,
-                      // fontWeight: FontWeight.bold,
                     ),
                   ),
                   Row(
@@ -110,22 +102,6 @@ class MealInfoCard extends StatelessWidget {
                     ],
                   ),
                   _RaitingBar(),
-                  // RatingBar(
-                  //   glow: false,
-                  //   itemSize: 25.0,
-                  //   initialRating: 3,
-                  //   minRating: 1,
-                  //   direction: Axis.horizontal,
-                  //   allowHalfRating: true,
-                  //   itemCount: 5,
-                  //   itemBuilder: (context, _) => Icon(
-                  //     Icons.star,
-                  //     color: Color(0xFFEE8703),
-                  //   ),
-                  //   onRatingUpdate: (rating) {
-                  //     print(rating);
-                  //   },
-                  // ),
                   Text(
                     '\$${price.toString()}',
                     style: TextStyle(
@@ -138,8 +114,8 @@ class MealInfoCard extends StatelessWidget {
             ),
           ),
           Hero(
-            tag: 'hero${imagePath}',
-            child: Image.asset(
+            tag: '${DateTime.now()} hero$imagePath',
+            child: Image.network(
               imagePath,
               width: 150.0,
             ),
