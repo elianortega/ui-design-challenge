@@ -2,8 +2,9 @@ import 'models/meal.dart';
 
 List<Meal> globalMealList = [
   Meal(
-    name: 'Salad with wheat and white egg',
-    imgSource: 'assets/images/plate1.png',
+    name: 'Salad with wheat \nand white egg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week3_UI_Nutrition/assets/images/plate1.png',
     calories: 200,
     protein: 78,
     carbs: 13,
@@ -11,8 +12,9 @@ List<Meal> globalMealList = [
     mealType: MealType.Good,
   ),
   Meal(
-    name: 'Pumplin Soup',
-    imgSource: 'assets/images/plate2.png',
+    name: 'Pumplin \nSoup',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week3_UI_Nutrition/assets/images/plate2.png',
     calories: 300,
     protein: 78,
     carbs: 13,
@@ -20,8 +22,9 @@ List<Meal> globalMealList = [
     mealType: MealType.Normal,
   ),
   Meal(
-    name: 'Mango and avocado salad',
-    imgSource: 'assets/images/plate3.png',
+    name: 'Mango and avocado \nsalad',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week3_UI_Nutrition/assets/images/plate3.png',
     calories: 150,
     protein: 78,
     carbs: 13,

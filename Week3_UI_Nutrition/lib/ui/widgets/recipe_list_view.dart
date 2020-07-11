@@ -8,8 +8,7 @@ class RecipeListView extends StatelessWidget {
   final List<Meal> mealList;
   final Function onPressed;
 
-  const RecipeListView({Key key, this.mealList, this.onPressed})
-      : super(key: key);
+  const RecipeListView({Key key, this.mealList, this.onPressed}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -71,7 +70,7 @@ class RecipeCard extends StatelessWidget {
                   )
                 ],
               ),
-              child: Image.asset(
+              child: Image.network(
                 imgSource,
                 height: 250,
               ),
@@ -96,18 +95,23 @@ class RecipeCard extends StatelessWidget {
                   onPressed: () {},
                 ),
                 SizedBox(height: 10.0),
-                Container(
-                  width: 150,
-                  child: Text(
-                    mealName,
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w600,
+                Expanded(
+                  child: Container(
+                    child: FittedBox(
+                      alignment: Alignment.centerLeft,
+                      fit: BoxFit.contain,
+                      child: Text(
+                        mealName,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: 10.0),
+                SizedBox(height: 5.0),
                 Text(
                   '$calories cals',
                   style: TextStyle(

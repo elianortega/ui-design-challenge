@@ -1,12 +1,7 @@
+import 'package:Week3_UI_Nutrition/ui/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:stacked_services/stacked_services.dart';
-
-import 'app/locator.dart';
-import 'app/router.gr.dart';
 
 void main() {
-  //set up locator
-  setUpLocator();
   runApp(MyApp());
 }
 
@@ -18,14 +13,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: Theme.of(context).textTheme.apply(
               bodyColor: Colors.white,
             ),
       ),
-      initialRoute: Routes.homeViewRoute,
-      onGenerateRoute: Router().onGenerateRoute,
-      navigatorKey: locator<NavigationService>().navigatorKey,
+      home: HomeView(),
     );
   }
 }

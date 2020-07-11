@@ -5,7 +5,7 @@
 /// github: https://github.com/iamvivekkaushik/
 /// ***
 
-import 'package:date_picker_timeline/gestures/tap.dart';
+// import 'package:date_picker_timeline/gestures/tap.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -16,7 +16,7 @@ class MyDateWidget extends StatelessWidget {
   final DateTime date;
   final TextStyle monthTextStyle, dayTextStyle, dateTextStyle;
   final Color selectionColor;
-  final DateSelectionCallback onDateSelected;
+  // final DateSelectionCallback onDateSelected;
   final String locale;
 
   final bool isSelected; //My Addition
@@ -29,7 +29,7 @@ class MyDateWidget extends StatelessWidget {
     @required this.selectionColor,
     @required this.isSelected, //My Addition
     this.width,
-    this.onDateSelected,
+    // this.onDateSelected,
     this.locale,
   });
 
@@ -76,10 +76,10 @@ class MyDateWidget extends StatelessWidget {
       ),
       onTap: () {
         // Check if onDateSelected is not null
-        if (onDateSelected != null) {
-          // Call the onDateSelected Function
-          onDateSelected(this.date);
-        }
+        // if (onDateSelected != null) {
+        //   // Call the onDateSelected Function
+        //   onDateSelected(this.date);
+        // }
       },
     );
   }

@@ -1,7 +1,7 @@
 import 'package:Week3_UI_Nutrition/models/meal.dart';
+import 'package:Week3_UI_Nutrition/packages/circular_percent_indicator.dart';
 import 'package:Week3_UI_Nutrition/ui/shared/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class NutritionalFacts extends StatelessWidget {
   final Meal meal;
@@ -57,8 +57,7 @@ class NutritionalFacts extends StatelessWidget {
     );
   }
 
-  Widget _primaryDetail(
-      {String title, Color color, int grams, bool includeDivider = true}) {
+  Widget _primaryDetail({String title, Color color, int grams, bool includeDivider = true}) {
     return Column(
       children: [
         Container(
@@ -167,10 +166,7 @@ Widget _percentageRow() {
 }
 
 Widget _progressIndicator(
-    {Color backgroundColor,
-    Color progressColor,
-    String title,
-    double percent}) {
+    {Color backgroundColor, Color progressColor, String title, double percent}) {
   return Expanded(
     child: CircularPercentIndicator(
       radius: 110.0,

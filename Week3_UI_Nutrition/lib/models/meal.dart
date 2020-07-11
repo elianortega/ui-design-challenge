@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 enum MealType {
   Good,
@@ -27,21 +27,21 @@ class Meal {
     @required this.mealType,
   });
 
-  FaIcon get icon {
+  Icon get icon {
     if (mealType == MealType.Good) {
-      return FaIcon(
-        FontAwesomeIcons.solidGrin,
+      return Icon(
+        Icons.tag_faces,
         color: Colors.blue[100],
       );
     } else if (mealType == MealType.Normal) {
-      return FaIcon(
-        FontAwesomeIcons.solidMeh,
+      return Icon(
+        Icons.tag_faces,
         color: Colors.grey[300],
       );
     }
 
-    return FaIcon(
-      FontAwesomeIcons.solidFrown,
+    return Icon(
+      Icons.tag_faces,
       color: Colors.red[200],
     );
   }

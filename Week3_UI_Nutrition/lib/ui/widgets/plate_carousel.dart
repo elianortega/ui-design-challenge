@@ -1,6 +1,5 @@
+import 'package:Week3_UI_Nutrition/packages/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
-import 'package:carousel_slider/carousel_slider.dart';
 
 import '../../models/meal.dart';
 
@@ -14,14 +13,14 @@ class PlateCarousel extends StatelessWidget {
     return CarouselSlider.builder(
       itemCount: mealList.length,
       itemBuilder: (context, index) {
-        return Image.asset(
+        return Image.network(
           mealList[index].imgSource,
         );
       },
       options: CarouselOptions(
         autoPlay: true,
         aspectRatio: 2.2,
-        viewportFraction: .6,
+        viewportFraction: .7,
         enlargeCenterPage: true,
       ),
     );

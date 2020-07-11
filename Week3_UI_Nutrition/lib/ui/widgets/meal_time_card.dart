@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../models/meal.dart';
 import '../shared/app_colors.dart';
@@ -86,8 +86,8 @@ class MealTimeCard extends StatelessWidget {
             flex: 1,
             child: Container(
               height: 100,
-              child: Image.asset(
-                'assets/images/doctor.png',
+              child: Image.network(
+                'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week3_UI_Nutrition/assets/images/doctor.png',
                 alignment: Alignment.topCenter,
                 fit: BoxFit.cover,
               ),
@@ -127,8 +127,7 @@ class MealTimeCard extends StatelessWidget {
                           color: kPurpleLight,
                           borderRadius: BorderRadius.circular(20.0),
                           image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(meal.imgSource)),
+                              fit: BoxFit.cover, image: NetworkImage(meal.imgSource)),
                         ),
                       ),
                       Positioned(
@@ -199,8 +198,8 @@ class MealTimeCard extends StatelessWidget {
             SizedBox(height: 10.0),
             Row(
               children: [
-                FaIcon(
-                  FontAwesomeIcons.fire,
+                Icon(
+                  Icons.add_circle_outline,
                   color: kPurpleDark,
                   size: 20.0,
                 ),

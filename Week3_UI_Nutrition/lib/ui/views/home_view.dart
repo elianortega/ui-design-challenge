@@ -1,59 +1,53 @@
+import 'package:Week3_UI_Nutrition/constants.dart';
+import 'package:Week3_UI_Nutrition/ui/views/journal_view.dart';
+import 'package:Week3_UI_Nutrition/ui/views/meal_information_view.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:stacked/stacked.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../shared/app_colors.dart';
 
-import 'home_viewmodel.dart';
+import '../widgets/plate_carousel.dart';
+import '../widgets/recipe_list_view.dart';
 
-import '../../shared/app_colors.dart';
-
-import '../../widgets/plate_carousel.dart';
-import '../../widgets/recipe_list_view.dart';
-
-import '../../animations/slide_opacity_animation.dart';
+import '../animations/slide_opacity_animation.dart';
 
 class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return ViewModelBuilder<HomeViewModel>.reactive(
-      builder: (context, model, child) {
-        return Scaffold(
-          backgroundColor: kScaffoldBackgroundColor,
-          body: Column(
-            children: [
-              Container(
-                height: screenSize.height * .62,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30.0),
-                    bottomRight: Radius.circular(30.0),
-                  ),
-                  color: kPurpleColor,
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    _dailyBar(),
-                    _mealSlider(screenSize, model),
-                    _bottomButtons(context, model),
-                    SizedBox(height: 10.0),
-                  ],
-                ),
+    return Scaffold(
+      backgroundColor: kScaffoldBackgroundColor,
+      body: Column(
+        children: [
+          Container(
+            height: screenSize.height * .62,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30.0),
+                bottomRight: Radius.circular(30.0),
               ),
-              SizedBox(height: 20.0),
-              _newRecipeBar(),
-              SizedBox(height: 10.0),
-              _recipeListView(screenSize, model)
-            ],
+              color: kPurpleColor,
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                _dailyBar(),
+                _mealSlider(screenSize),
+                _bottomButtons(context),
+                SizedBox(height: 10.0),
+              ],
+            ),
           ),
-        );
-      },
-      viewModelBuilder: () => HomeViewModel(),
+          SizedBox(height: 20.0),
+          _newRecipeBar(),
+          SizedBox(height: 10.0),
+          _recipeListView(screenSize, context),
+        ],
+      ),
     );
   }
 
-  Widget _recipeListView(Size screenSize, HomeViewModel model) {
+  Widget _recipeListView(Size screenSize, BuildContext context) {
     return SlideOpacityAnimation(
       delay: 700,
       offsetStart: Offset(-100, 0),
@@ -61,8 +55,12 @@ class HomeView extends StatelessWidget {
         height: screenSize.height * .23,
         width: double.infinity,
         child: RecipeListView(
-          mealList: model.mealList,
-          onPressed: model.navigateToMealInformation,
+          mealList: globalMealList,
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (ctx) => MealInformationView(),
+            ),
+          ),
         ),
       ),
     );
@@ -86,8 +84,8 @@ class HomeView extends StatelessWidget {
               ),
             ),
             IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.ellipsisH,
+              icon: Icon(
+                Icons.more,
                 color: Colors.grey.withOpacity(.7),
               ),
               onPressed: () {},
@@ -98,7 +96,7 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _bottomButtons(BuildContext context, HomeViewModel model) {
+  Widget _bottomButtons(BuildContext context) {
     return Expanded(
       child: SlideOpacityAnimation(
         delay: 700,
@@ -130,15 +128,18 @@ class HomeView extends StatelessWidget {
                       color: kPurpleDark,
                     ),
                     child: Center(
-                      child: FaIcon(
-                        FontAwesomeIcons.solidBookmark,
+                      child: Icon(
+                        Icons.bookmark,
                         color: Colors.white,
-                        size: 20.0,
                       ),
                     ),
                   ),
                   FlatButton(
-                    onPressed: () => model.navigateToJournal(),
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => JournalView(),
+                      ),
+                    ),
                     // onPressed: () =>
                     //     Navigator.of(context).push(MaterialPageRoute(
                     //   builder: (ctx) => JournalView(),
@@ -171,14 +172,14 @@ class HomeView extends StatelessWidget {
     );
   }
 
-  Widget _mealSlider(Size screenSize, HomeViewModel model) {
+  Widget _mealSlider(Size screenSize) {
     return SlideOpacityAnimation(
       delay: 600,
       offsetStart: Offset(0, 100),
       child: Container(
         height: screenSize.height * .25,
         // color: Colors.red,
-        child: PlateCarousel(mealList: model.mealList),
+        child: PlateCarousel(mealList: globalMealList),
       ),
     );
   }
@@ -188,28 +189,33 @@ class HomeView extends StatelessWidget {
       child: SlideOpacityAnimation(
         delay: 500,
         offsetStart: Offset(0, 100),
-        child: Container(
-          alignment: Alignment.center,
-          // height: screenSize.height * .175,
-          padding: EdgeInsets.only(top: 70.0),
-          child: Column(
-            children: [
-              Text(
-                'DAILY PICK',
-                style: TextStyle(
-                  letterSpacing: 1.0,
-                  fontSize: 13.0,
+        child: SafeArea(
+          child: Container(
+            alignment: Alignment.center,
+            // height: screenSize.height * .175,
+            padding: EdgeInsets.only(top: 30.0),
+            child: Column(
+              children: [
+                Text(
+                  'DAILY PICK',
+                  style: TextStyle(
+                    letterSpacing: 1.0,
+                    fontSize: 13.0,
+                  ),
                 ),
-              ),
-              SizedBox(height: 10.0),
-              Text(
-                'Breakfast ideas',
-                style: TextStyle(
-                  fontSize: 24.0,
-                  fontWeight: FontWeight.w600,
+                SizedBox(height: 10.0),
+                FittedBox(
+                  fit: BoxFit.fitHeight,
+                  child: Text(
+                    'Breakfast ideas',
+                    style: TextStyle(
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
