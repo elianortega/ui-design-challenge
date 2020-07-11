@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:Week2_UI_Donation/packages/circular_progress_indicator.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:percent_indicator/circular_percent_indicator.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../constants.dart';
 
@@ -34,7 +35,8 @@ class CharityEventCard extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/charity_1.jpg'),
+                    image: NetworkImage(
+                        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/charity_1.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -66,11 +68,17 @@ class CharityEventCard extends StatelessWidget {
                           SizedBox(height: 5.0),
                           Row(
                             children: [
-                              FaIcon(
-                                FontAwesomeIcons.mapMarkerAlt,
-                                size: 15.0,
+                              // * For CodePen
+                              Icon(
+                                Icons.location_on,
                                 color: Color(0xff7D8A99),
+                                size: 16.0,
                               ),
+                              // FaIcon(
+                              //   FontAwesomeIcons.mapMarkerAlt,
+                              //   size: 15.0,
+                              //   color: Color(0xff7D8A99),
+                              // ),
                               SizedBox(width: 10.0),
                               FittedBox(
                                 child: Text(
@@ -109,11 +117,6 @@ class CharityEventCard extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                  ),
-                                  RaisedButton(
-                                    onPressed: () {
-                                      print('pressed');
-                                    },
                                   ),
                                 ],
                               ),

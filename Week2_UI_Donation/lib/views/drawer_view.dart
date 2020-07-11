@@ -1,6 +1,6 @@
 import 'package:Week2_UI_Donation/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DrawerView extends StatelessWidget {
   @override
@@ -37,8 +37,8 @@ class DrawerView extends StatelessWidget {
                       color: Color(0xFFD7DEE4),
                     ),
                     child: Center(
-                      child: FaIcon(
-                        FontAwesomeIcons.userAlt,
+                      child: Icon(
+                        Icons.person,
                         color: Colors.white,
                       ),
                     ),
@@ -69,28 +69,28 @@ class DrawerView extends StatelessWidget {
               SizedBox(height: 50.0),
               _listTile(
                 title: 'Home',
-                icon: FontAwesomeIcons.home,
+                icon: Icons.home,
                 isSelected: true,
               ),
               _listTile(
                 title: 'Search Project',
-                icon: FontAwesomeIcons.search,
+                icon: Icons.search,
               ),
               _listTile(
                 title: 'Goals',
-                icon: FontAwesomeIcons.bullseye,
+                icon: Icons.track_changes,
               ),
               _listTile(
                 title: 'The table',
-                icon: FontAwesomeIcons.map,
+                icon: Icons.map,
               ),
               _listTile(
                 title: 'Community',
-                icon: FontAwesomeIcons.userFriends,
+                icon: Icons.people,
               ),
               _listTile(
                 title: 'Logout',
-                icon: FontAwesomeIcons.signOutAlt,
+                icon: Icons.lock,
               ),
             ],
           ),
@@ -104,9 +104,10 @@ class DrawerView extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 30.0),
       child: Row(
         children: [
-          FaIcon(
+          Icon(
             icon,
             color: isSelected ? Colors.white : Colors.grey,
+            size: 28,
           ),
           SizedBox(width: 20.0),
           Text(

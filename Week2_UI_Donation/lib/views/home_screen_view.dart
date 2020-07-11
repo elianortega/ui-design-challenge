@@ -1,7 +1,7 @@
 import 'package:Week2_UI_Donation/views/charities_view.dart';
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../constants.dart';
 import '../widgets/cards_stack.dart';
@@ -10,15 +10,18 @@ import '../widgets/my_bottom_nav_bar.dart';
 final charityEvents = [
   {
     'title': 'Educate Children around the world',
-    'imgSource': 'assets/images/education2.jpeg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/education2.jpeg',
   },
   {
     'title': 'Educate Children around the world',
-    'imgSource': 'assets/images/education.jpeg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/education.jpeg',
   },
   {
     'title': 'Feed Children around the world',
-    'imgSource': 'assets/images/charity_2.jpg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/charity_2.jpg',
   }
 ];
 
@@ -107,7 +110,7 @@ class HomeScreenView extends StatelessWidget {
       decoration: BoxDecoration(
         image: DecorationImage(
           fit: BoxFit.cover,
-          image: AssetImage(imgSource),
+          image: NetworkImage(imgSource),
         ),
         borderRadius: BorderRadius.circular(20.0),
       ),
@@ -163,8 +166,8 @@ class HomeScreenView extends StatelessWidget {
               color: Color(0xFFD7DEE4),
             ),
             child: Center(
-              child: FaIcon(
-                FontAwesomeIcons.userAlt,
+              child: Icon(
+                Icons.person,
                 color: Colors.white,
               ),
             ),

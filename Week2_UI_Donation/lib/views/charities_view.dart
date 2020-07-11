@@ -1,19 +1,22 @@
 import 'package:Week2_UI_Donation/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 final charityEvents = [
   {
     'title': 'Educate Children around the world',
-    'imgSource': 'assets/images/education2.jpeg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/education2.jpeg',
   },
   {
     'title': 'Educate Children around the world',
-    'imgSource': 'assets/images/education.jpeg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/education.jpeg',
   },
   {
     'title': 'Feed Children around the world',
-    'imgSource': 'assets/images/charity_2.jpg',
+    'imgSource':
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week2_UI_Donation/assets/images/charity_2.jpg',
   }
 ];
 
@@ -29,8 +32,8 @@ class CharitiesViews extends StatelessWidget {
             left: 20.0,
             top: 10.0,
           ),
-          child: FaIcon(
-            FontAwesomeIcons.bars,
+          child: Icon(
+            Icons.menu,
             color: kBlueColor,
           ),
         ),
@@ -46,8 +49,8 @@ class CharitiesViews extends StatelessWidget {
               right: 20.0,
               top: 10.0,
             ),
-            child: FaIcon(
-              FontAwesomeIcons.filter,
+            child: Icon(
+              Icons.filter,
               color: kBlueColor,
             ),
           )
@@ -78,7 +81,7 @@ class CharitiesViews extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20.0),
                         image: DecorationImage(
                           fit: BoxFit.cover,
-                          image: AssetImage(
+                          image: NetworkImage(
                             charityEvents[index]['imgSource'],
                           ),
                         ),

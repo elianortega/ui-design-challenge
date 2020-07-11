@@ -1,4 +1,4 @@
-import 'package:card_selector/card_selector.dart';
+import '../packages/card_selector.dart';
 import 'package:flutter/material.dart';
 
 import './charity_event_card.dart';

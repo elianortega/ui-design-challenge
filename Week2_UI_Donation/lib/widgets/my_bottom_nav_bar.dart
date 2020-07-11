@@ -1,7 +1,7 @@
 import 'package:Week2_UI_Donation/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MyBottomNavBar extends StatelessWidget {
   const MyBottomNavBar({
@@ -24,21 +24,21 @@ class MyBottomNavBar extends StatelessWidget {
           children: [
             IconButton(
               color: kRedColor,
-              icon: FaIcon(FontAwesomeIcons.bullseye),
+              icon: Icon(Icons.track_changes),
               onPressed: () {},
             ),
             IconButton(
-              icon: FaIcon(FontAwesomeIcons.mapMarkedAlt),
-              onPressed: () {},
-              color: Color(0xff506177),
-            ),
-            IconButton(
-              icon: FaIcon(FontAwesomeIcons.users),
+              icon: Icon(Icons.map),
               onPressed: () {},
               color: Color(0xff506177),
             ),
             IconButton(
-              icon: FaIcon(FontAwesomeIcons.user),
+              icon: Icon(Icons.people),
+              onPressed: () {},
+              color: Color(0xff506177),
+            ),
+            IconButton(
+              icon: Icon(Icons.person),
               onPressed: () {},
               color: Color(0xff506177),
             ),
