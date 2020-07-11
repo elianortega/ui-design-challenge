@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
         brightness: Brightness.dark,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       initialRoute: GetStartedScreen.id,
       routes: {

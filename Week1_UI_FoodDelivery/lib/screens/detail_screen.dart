@@ -3,7 +3,6 @@ import '../widgets/meal_display.dart';
 import '../widgets/detail_row.dart';
 import '../widgets/meal_detail_info.dart';
 import '../widgets/meal_overview.dart';
-import '../widgets/my_slide_button.dart';
 
 import '../animations/slide_animation.dart';
 

@@ -114,12 +114,9 @@ class GetStartedScreen extends StatelessWidget {
                       offsetEnd: Offset.zero,
                       child: Container(
                         constraints: BoxConstraints(maxWidth: 500, minWidth: 0.0),
-                        child: FittedBox(
-                          fit: BoxFit.contain,
-                          child: Image.asset(
-                            'assets/images/delivery.png',
-                            // width: 200,
-                          ),
+                        child: Image.asset(
+                          'assets/images/delivery.png',
+                          // width: 200,
                         ),
                       ),
                     ),
