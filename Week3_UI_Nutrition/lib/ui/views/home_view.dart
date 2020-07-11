@@ -177,7 +177,7 @@ class HomeView extends StatelessWidget {
       delay: 600,
       offsetStart: Offset(0, 100),
       child: Container(
-        height: screenSize.height * .25,
+        height: screenSize.height * .23,
         // color: Colors.red,
         child: PlateCarousel(mealList: globalMealList),
       ),
@@ -193,7 +193,7 @@ class HomeView extends StatelessWidget {
           child: Container(
             alignment: Alignment.center,
             // height: screenSize.height * .175,
-            padding: EdgeInsets.only(top: 30.0),
+            padding: EdgeInsets.only(top: 20.0),
             child: Column(
               children: [
                 Text(

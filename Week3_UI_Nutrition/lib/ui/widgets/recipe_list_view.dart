@@ -97,16 +97,12 @@ class RecipeCard extends StatelessWidget {
                 SizedBox(height: 10.0),
                 Expanded(
                   child: Container(
-                    child: FittedBox(
-                      alignment: Alignment.centerLeft,
-                      fit: BoxFit.contain,
-                      child: Text(
-                        mealName,
-                        style: TextStyle(
-                          color: Colors.black,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w600,
-                        ),
+                    child: Text(
+                      mealName,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
