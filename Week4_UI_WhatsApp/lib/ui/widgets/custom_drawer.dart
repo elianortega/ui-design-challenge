@@ -1,7 +1,7 @@
 import 'package:Week4_UI_WhatsApp/ui/shared/constants.dart';
 import 'package:Week4_UI_WhatsApp/ui/widgets/custom_circle_avatar.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../shared/app_colors.dart';
 import '../animation/slide_animation.dart';
 
@@ -28,8 +28,8 @@ class CustomDrawer extends StatelessWidget {
             Row(
               children: [
                 IconButton(
-                  icon: FaIcon(
-                    FontAwesomeIcons.chevronLeft,
+                  icon: Icon(
+                    Icons.arrow_back_ios,
                     color: Colors.white,
                   ),
                   onPressed: () {
@@ -56,7 +56,9 @@ class CustomDrawer extends StatelessWidget {
               offsetStart: Offset(-200, 0),
               child: Row(
                 children: [
-                  CustomCircleAvatar(imgSource: 'assets/images/elian.jpg'),
+                  CustomCircleAvatar(
+                      imgSource:
+                          'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/elian.jpg'),
                   Expanded(
                     child: Center(
                       child: Text(
@@ -73,7 +75,7 @@ class CustomDrawer extends StatelessWidget {
               delay: 300,
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
-                icon: FontAwesomeIcons.key,
+                icon: Icons.security,
                 title: 'Account',
               ),
             ),
@@ -81,7 +83,7 @@ class CustomDrawer extends StatelessWidget {
               delay: 400,
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
-                icon: FontAwesomeIcons.comments,
+                icon: Icons.mode_comment,
                 title: 'Chat',
               ),
             ),
@@ -89,7 +91,7 @@ class CustomDrawer extends StatelessWidget {
               delay: 500,
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
-                icon: FontAwesomeIcons.solidBell,
+                icon: Icons.notifications,
                 title: 'Notifications',
               ),
             ),
@@ -97,7 +99,7 @@ class CustomDrawer extends StatelessWidget {
               delay: 600,
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
-                icon: FontAwesomeIcons.database,
+                icon: Icons.storage,
                 title: 'Data and Storage',
               ),
             ),
@@ -105,7 +107,7 @@ class CustomDrawer extends StatelessWidget {
               delay: 700,
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
-                icon: FontAwesomeIcons.solidQuestionCircle,
+                icon: Icons.help,
                 title: 'Help',
               ),
             ),
@@ -123,7 +125,7 @@ class CustomDrawer extends StatelessWidget {
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
                 title: 'Invite a Friend',
-                icon: FontAwesomeIcons.userFriends,
+                icon: Icons.people,
               ),
             ),
             Spacer(),
@@ -132,7 +134,7 @@ class CustomDrawer extends StatelessWidget {
               offsetStart: Offset(-100, 100),
               child: _drawerTile(
                 title: 'Log out',
-                icon: FontAwesomeIcons.signOutAlt,
+                icon: Icons.lock,
               ),
             )
           ],
@@ -146,7 +148,7 @@ class CustomDrawer extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 25.0),
       child: Row(
         children: [
-          FaIcon(
+          Icon(
             icon,
             color: Colors.white,
           ),

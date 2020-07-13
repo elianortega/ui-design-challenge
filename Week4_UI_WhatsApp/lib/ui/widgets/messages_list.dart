@@ -52,7 +52,7 @@ class MessagesList extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 35,
-              backgroundImage: AssetImage(imgSource),
+              backgroundImage: NetworkImage(imgSource),
             ),
             SizedBox(width: 20.0),
             Expanded(

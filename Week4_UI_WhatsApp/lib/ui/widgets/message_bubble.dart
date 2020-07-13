@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'custom_circle_avatar.dart';
 import '../shared/app_colors.dart';
@@ -39,8 +39,8 @@ class MessageBubble extends StatelessWidget {
     return Row(
       // crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Image.asset(
-          'assets/images/double-checking.png',
+        Image.network(
+          'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/double-checking.png',
           height: 16,
           color: AppColors.green,
         ),
@@ -55,9 +55,7 @@ class MessageBubble extends StatelessWidget {
   Expanded _messageBubble() {
     return Expanded(
         child: Container(
-      padding: messageType == MessageType.Image
-          ? EdgeInsets.zero
-          : EdgeInsets.all(15.0),
+      padding: messageType == MessageType.Image ? EdgeInsets.zero : EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: myMessage ? Colors.white : AppColors.green,
         borderRadius: myMessage
@@ -76,7 +74,7 @@ class MessageBubble extends StatelessWidget {
         image: messageType == MessageType.Image
             ? DecorationImage(
                 fit: BoxFit.cover,
-                image: AssetImage(
+                image: NetworkImage(
                   messageText,
                 ),
               )
@@ -110,14 +108,14 @@ class MessageBubble extends StatelessWidget {
         height: 30,
         child: Row(
           children: [
-            FaIcon(
-              FontAwesomeIcons.playCircle,
+            Icon(
+              Icons.play_circle_filled,
               color: Colors.white,
             ),
             SizedBox(width: 5.0),
             Expanded(
-              child: Image.asset(
-                'assets/images/audio.png',
+              child: Image.network(
+                'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/audio.png',
                 fit: BoxFit.cover,
                 color: Colors.white.withOpacity(.8),
               ),
@@ -131,8 +129,9 @@ class MessageBubble extends StatelessWidget {
   CustomCircleAvatar _circleAvatar() {
     return CustomCircleAvatar(
       radius: 25,
-      imgSource:
-          myMessage ? 'assets/images/elian.jpg' : 'assets/images/friend4.jpeg',
+      imgSource: myMessage
+          ? 'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/elian.jpg'
+          : 'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend4.jpeg',
     );
   }
 }

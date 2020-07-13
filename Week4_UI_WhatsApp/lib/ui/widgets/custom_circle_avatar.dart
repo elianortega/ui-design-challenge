@@ -1,4 +1,3 @@
-import 'package:Week4_UI_WhatsApp/ui/animation/shake_animation.dart';
 import 'package:flutter/material.dart';
 
 class CustomCircleAvatar extends StatelessWidget {
@@ -22,7 +21,7 @@ class CustomCircleAvatar extends StatelessWidget {
       ),
       child: CircleAvatar(
         radius: radius,
-        backgroundImage: AssetImage(imgSource),
+        backgroundImage: NetworkImage(imgSource),
       ),
     );
   }

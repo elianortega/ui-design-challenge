@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../shared/app_colors.dart';
 import '../shared/constants.dart';
@@ -64,7 +64,8 @@ class MessagesView extends StatelessWidget {
                       messageType: MessageType.Text,
                     ),
                     MessageBubble(
-                      messageText: 'assets/images/cat.jpeg',
+                      messageText:
+                          'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/cat.jpeg',
                       myMessage: true,
                       messageType: MessageType.Image,
                     ),
@@ -105,8 +106,8 @@ class MessagesView extends StatelessWidget {
               child: Row(
                 children: [
                   IconButton(
-                    icon: FaIcon(
-                      FontAwesomeIcons.smile,
+                    icon: Icon(
+                      Icons.tag_faces,
                       color: Colors.white,
                       size: 20.0,
                     ),
@@ -120,16 +121,16 @@ class MessagesView extends StatelessWidget {
                     ),
                   ),
                   IconButton(
-                    icon: FaIcon(
-                      FontAwesomeIcons.upload,
+                    icon: Icon(
+                      Icons.file_upload,
                       color: Colors.white,
                       size: 20.0,
                     ),
                     onPressed: () {},
                   ),
                   IconButton(
-                    icon: FaIcon(
-                      FontAwesomeIcons.photoVideo,
+                    icon: Icon(
+                      Icons.filter_frames,
                       color: Colors.white,
                       size: 20.0,
                     ),
@@ -146,8 +147,8 @@ class MessagesView extends StatelessWidget {
               color: AppColors.green,
             ),
             child: IconButton(
-              icon: FaIcon(
-                FontAwesomeIcons.microphone,
+              icon: Icon(
+                Icons.record_voice_over,
                 size: 18,
                 color: Colors.white,
               ),
@@ -168,8 +169,8 @@ AppBar _appBar(BuildContext context) {
       child: IconButton(
         splashRadius: null,
         padding: EdgeInsets.only(left: 20.0),
-        icon: FaIcon(
-          FontAwesomeIcons.chevronLeft,
+        icon: Icon(
+          Icons.flip_to_back,
         ),
         onPressed: () {
           Navigator.of(context).pop();
@@ -180,7 +181,7 @@ AppBar _appBar(BuildContext context) {
       IconButton(
         splashRadius: null,
         padding: EdgeInsets.only(right: 20.0),
-        icon: FaIcon(FontAwesomeIcons.ellipsisV),
+        icon: Icon(Icons.blur_on),
         onPressed: () {},
       ),
     ],

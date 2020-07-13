@@ -2,7 +2,7 @@ import 'package:Week4_UI_WhatsApp/ui/animation/slide_animation.dart';
 import 'package:Week4_UI_WhatsApp/ui/shared/constants.dart';
 import 'package:flutter/material.dart';
 
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../shared/app_colors.dart';
 
@@ -64,8 +64,8 @@ class HomeView extends StatelessWidget {
         child: FittedBox(
           child: FloatingActionButton(
             backgroundColor: AppColors.green,
-            child: FaIcon(
-              FontAwesomeIcons.pen,
+            child: Icon(
+              Icons.edit,
               size: 20.0,
             ),
             onPressed: () {},
@@ -84,8 +84,8 @@ class HomeView extends StatelessWidget {
         child: IconButton(
           splashRadius: null,
           padding: EdgeInsets.only(left: 20.0),
-          icon: FaIcon(
-            FontAwesomeIcons.bars,
+          icon: Icon(
+            Icons.menu,
           ),
           onPressed: () {
             _scaffoldKey.currentState.openDrawer();
@@ -96,7 +96,7 @@ class HomeView extends StatelessWidget {
         IconButton(
           splashRadius: null,
           padding: EdgeInsets.only(right: 20.0),
-          icon: FaIcon(FontAwesomeIcons.search),
+          icon: Icon(Icons.search),
           onPressed: () {},
         ),
       ],

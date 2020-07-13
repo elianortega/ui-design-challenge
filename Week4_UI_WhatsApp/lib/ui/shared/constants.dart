@@ -31,30 +31,37 @@ const kDrawerTextStyle = TextStyle(
 final List<Friend> friendsList = [
   Friend(
     name: 'Alla',
-    imgSource: 'assets/images/friend1.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend1.jpeg',
   ),
   Friend(
     name: 'July',
-    imgSource: 'assets/images/friend2.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend2.jpeg',
   ),
   Friend(
     name: 'Mikle',
-    imgSource: 'assets/images/friend3.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend3.jpeg',
   ),
   Friend(
     name: 'Kler',
-    imgSource: 'assets/images/friend4.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend4.jpeg',
   ),
   Friend(
     name: 'Mary',
-    imgSource: 'assets/images/friend5.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend5.jpeg',
   ),
   Friend(
     name: 'Louren',
-    imgSource: 'assets/images/friend6.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend6.jpeg',
   ),
   Friend(
     name: 'Helen',
-    imgSource: 'assets/images/friend7.jpeg',
+    imgSource:
+        'https://raw.githubusercontent.com/elian-ortega/ui-design-challenge/master/Week4_UI_WhatsApp/assets/images/friend7.jpeg',
   ),
 ];
