@@ -298,7 +298,7 @@ class _CardList extends StatelessWidget {
       duration: 800,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 30.0),
-        height: 150,
+        height: 100,
         // color: Colors.red,
         child: ListView(
           scrollDirection: Axis.horizontal,
