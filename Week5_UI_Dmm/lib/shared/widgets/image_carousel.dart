@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ImageCarousel extends StatefulWidget {
@@ -9,8 +9,7 @@ class ImageCarousel extends StatefulWidget {
   _ImageCarouselState createState() => _ImageCarouselState();
 }
 
-class _ImageCarouselState extends State<ImageCarousel>
-    with SingleTickerProviderStateMixin {
+class _ImageCarouselState extends State<ImageCarousel> with SingleTickerProviderStateMixin {
   int selected = 0;
 
   @override
