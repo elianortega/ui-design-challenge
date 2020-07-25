@@ -113,13 +113,15 @@ class _AccountDescription extends StatelessWidget {
               topRight: Radius.circular(40.0),
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              TimeButtons(),
-              _SpendingsGraph(),
-              _CardList(),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                TimeButtons(),
+                _SpendingsGraph(),
+                _CardList(),
+              ],
+            ),
           ),
         ),
       ),
@@ -135,7 +137,7 @@ class _SpendingsGraph extends StatelessWidget {
       duration: 700,
       child: Container(
         padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 20.0),
-        height: 300,
+        height: 270,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
@@ -298,7 +300,7 @@ class _CardList extends StatelessWidget {
       duration: 800,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 30.0),
-        height: 100,
+        height: 140,
         // color: Colors.red,
         child: ListView(
           scrollDirection: Axis.horizontal,
